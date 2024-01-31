@@ -1,20 +1,78 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header [translucent]="true"> <!-- Encabezado de la página -->
+  <ion-toolbar> <!-- Barra de herramientas -->
+    <ion-title> <!-- Título de la página -->
+      Pokedex <!-- Título mostrado en la barra de herramientas -->
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true"> <!-- Contenido principal -->
+  <ion-card > <!-- Tarjeta de Pokémon actual -->
+    <ion-card-header> <!-- Encabezado de la tarjeta -->
+      <ion-row > <!-- Fila para la visualización del número -->
+        <!-- Número actual de Pokémon -->
+        <ion-col >
+          <ion-label>{{ numberValue }}</ion-label>
+        </ion-col>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        <!-- Botones de incremento y decremento -->
+        <ion-col size="12" class="button-container ion-text-center">
+          <ion-button (click)="increment()" class="button"> <!-- Botón de incremento -->
+            <ion-icon name="add-outline"></ion-icon> <!-- Icono de suma -->
+          </ion-button>
+          <ion-button (click)="decrement()" class="button"> <!-- Botón de decremento -->
+            <ion-icon name="remove-outline"></ion-icon> <!-- Icono de resta -->
+          </ion-button>
+          <!-- Icono de búsqueda -->
+          <ion-icon name="search-outline" class="search-icon" (click)="search()"></ion-icon>
+          <!-- Título del Pokémon encontrado -->
+          <ion-card-subtitle class="ion-text-center">{{ cardTitle }}</ion-card-subtitle>
+          <!-- Imagen del Pokémon encontrado -->
+          <img *ngIf="pokemonImage" [src]="pokemonImage" alt="Pokemon Image" class="center-image">
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Tarjeta de búsqueda por nombre de Pokémon -->
+  <ion-card color="primary">
+    <ion-card-content class="ion-text-center">
+      <!-- Campo de búsqueda -->
+      <ion-searchbar [(ngModel)]="searchna" placeholder="Buscar Pokémon" (keyup.enter)="search()"></ion-searchbar>
+      <!-- Icono de búsqueda -->
+      <ion-icon name="search-outline" class="search-icon" (click)="searchByIcon()"></ion-icon>
+      <!-- Título del Pokémon encontrado -->
+      <ion-card-subtitle class="ion-text-center">{{ searchCardTitle }}</ion-card-subtitle>
+      <!-- Imagen del Pokémon encontrado -->
+      <img *ngIf="searchPokemonImage" [src]="searchPokemonImage" alt="Pokemon Image" class="center-image">
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Tarjeta de búsqueda de ítems por nombre -->
+  <ion-card color="primary">
+    <ion-card-content class="ion-text-center">
+      <!-- Campo de búsqueda -->
+      <ion-searchbar [(ngModel)]="searchitt" placeholder="Buscar Item(por nombre)" (keyup.enter)="search()"></ion-searchbar>
+      <!-- Icono de búsqueda -->
+      <ion-icon name="search-outline" class="search-icon" (click)="searchByIcon()"></ion-icon>
+      <!-- Título del ítem encontrado -->
+      <ion-card-subtitle class="ion-text-center">{{ searchCardTitlet }}</ion-card-subtitle>
+      <!-- Imagen del ítem encontrado -->
+      <img *ngIf="searchitemtImage" [src]="searchitemtImage" alt="itemt Image" class="center-image">
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Tarjeta de búsqueda de ítems por ID -->
+  <ion-card color="primary">
+    <ion-card-content class="ion-text-center">
+      <!-- Campo de búsqueda -->
+      <ion-searchbar [(ngModel)]="searchitn" placeholder="Buscar Item(por id)" (keyup.enter)="search()"></ion-searchbar>
+      <!-- Icono de búsqueda -->
+      <ion-icon name="search-outline" class="search-icon" (click)="searchByIcon()"></ion-icon>
+      <!-- Título del ítem encontrado -->
+      <ion-card-subtitle class="ion-text-center">{{ searchCardTitlen }}</ion-card-subtitle>
+      <!-- Imagen del ítem encontrado -->
+      <img *ngIf="searchitemnImage" [src]="searchitemnImage" alt="itemn Image" class="center-image">
+    </ion-card-content>
+  </ion-card>
 </ion-content>
