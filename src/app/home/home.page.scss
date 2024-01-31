@@ -1,29 +1,29 @@
 /* Estilo para el contenido de la Pokedex */
-ion-content.pokedex-background {
-  height: 100%; /* Establece la altura al 100% */
+ion-content{
   --background: aquamarine; /* Color de fondo */
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 
-/* Estilo para las filas */
-ion-row {
-  display: flex; /* Establece la visualización como flex */
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
-  margin: 10px; /* Margen exterior */
+}
+.cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 /* Estilo para las tarjetas */
 ion-card {
-  width: 70%; /* Ancho de la tarjeta */
-  height: 70%; /* Altura de la tarjeta */
+  width: 500px; /* Ancho de la tarjeta */
+  height: 500px; /* Altura de la tarjeta */
   border-radius: 10px; /* Borde redondeado */
-  background: #f8f8f8; /* Color de fondo */
+  background: #292828; /* Color de fondo */
 }
 
 /* Estilo para las imágenes centradas */
-.center-image {
-  max-width: 100%; /* Ancho máximo */
-  max-height: 100%; /* Altura máxima */
-}
+
 
 /* Estilo para los iconos */
 ion-icon {
@@ -32,7 +32,8 @@ ion-icon {
 
 /* Estilo para la barra de búsqueda */
 ion-searchbar {
-  --color: rgb(92, 90, 90); /* Color del texto */
+  --color: rgb(255, 255, 255);
+  --background: #3a8be765; /* Color del texto */
 }
 
 /* Estilo para el contenedor de botones */
