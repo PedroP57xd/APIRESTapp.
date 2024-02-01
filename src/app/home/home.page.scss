@@ -1,23 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
 /* Estilo para el contenido de la Pokedex */
 ion-content{
-  --background: aquamarine; /* Color de fondo */
+  background: #af1b1b;
+  --background: url('../../assets/9fa509702fab91b910e82919b5408993.jpg') no-repeat center center fixed;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+}
+
+ion-toolbar{
+  --background: linear-gradient(to bottom, #ff0000, #ffffff);
+}
+
+ion-title{
+  display: flex;
+  text-align: center;
+  color: #eeff00;
+  font-family: 'Luckiest Guy', sans-serif; /* Usar la fuente Luckiest Guy */
+  font-size: 2.5rem; /* Tamaño de fuente más grande */
+  font-weight: 700; /* Aumentar el peso de la fuente para hacerla más negrita */
+  letter-spacing: 1px; /* Ajustar el espaciado entre letras */
+  text-transform: uppercase; /* Convertir el texto a mayúsculas */
+  text-shadow: 3px 3px 4px rgb(0, 204, 255); /* Agregar sombra de texto para mejorar la legibilidad */
+
 
 }
 .cont{
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 /* Estilo para las tarjetas */
 ion-card {
-  width: 500px; /* Ancho de la tarjeta */
-  height: 500px; /* Altura de la tarjeta */
+  width: 30%; /* Ancho de la tarjeta */
+  height: 300px; /* Altura de la tarjeta */
   border-radius: 10px; /* Borde redondeado */
   background: #292828; /* Color de fondo */
 }
