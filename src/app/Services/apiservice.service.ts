@@ -33,8 +33,8 @@ export class APIServiceService {
    * @param itemn El ID del ítem de Pokémon.
    * @returns Un Observable con los datos del ítem de Pokémon.
    */
-  getPokemonitemn(itemn: number): Observable<any> {
-    return this.http.get(this.apiUrl + "item/" + itemn);
+  getPokemonitemn(itemn: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}item/${itemn}`);
   }
 
   /**
@@ -42,7 +42,8 @@ export class APIServiceService {
    * @param itemt El nombre del ítem de Pokémon.
    * @returns Un Observable con los datos del ítem de Pokémon.
    */
+
   getPokemonitemt(itemt: string): Observable<any> {
-    return this.http.get(this.apiUrl + "item/" + itemt);
+    return this.http.get(`${this.apiUrl}item/${itemt}`);
   }
 }

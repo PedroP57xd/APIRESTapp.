@@ -10,10 +10,17 @@ export class HomePage {
 
   constructor(private api: APIServiceService) {}
 
+
+
+  
+
   // Primera tarjeta
   numberValue: number = 0;
   cardTitle: string = 'Pokemon Card';
   pokemonImage: string = '';
+
+  cardTitlet: string = 'Item Card';
+  itemImage: string = '';
 
   // Segunda tarjeta
   searchna: string = '';
@@ -26,7 +33,7 @@ export class HomePage {
   searchitemtImage: string = '';
 
   // Cuarta tarjeta
-  searchitn: number = 0;
+  searchitn: string = '';
   searchCardTitlen: string = 'Search itemn';
   searchitemnImage: string = '';
 
@@ -34,6 +41,8 @@ export class HomePage {
   increment() {
     if (this.numberValue < 100) {
       this.numberValue += 1;
+      // Actualiza el número de ítem
+      this.numberValue = this.numberValue;
       // Si incrementas o decrementas, resetea la búsqueda por texto
       this.resetSearch();
     }
@@ -125,36 +134,73 @@ export class HomePage {
     this.search();
   }
 
-  // Función para buscar en la tercera tarjeta
-  searcht() {
-    // Si hay un valor en searchna, busca por ID.
-    if (this.searchitt) {
-      this.getItemDataByNamet(this.searchitt, true);
-    } 
-  }
 
-  // Función para obtener datos de un Pokémon por nombre en la tercera tarjeta
+//ITEM
+
+
+// Función para buscar en la tercera tarjeta
+// En la función searcht
+searcht() {
+  // Si hay un valor en searchitt, busca el ítem.
+  if (this.searchitt) {
+    this.getItemDataByNamet(this.searchitt, true);
+  } else {
+    // Si no hay valor en searchitt, busca por el número actual.
+    this.getPokemonDataByItemID(this.searchitn, false);
+  }
+}
+
+
+getPokemonDataByItemID(name: string, isSearchCard: boolean) {
+  try {
+    const lowercaseItemn = name.toLowerCase();
+
+    this.api.getPokemonitemn(lowercaseItemn).subscribe(
+      (response) => {
+        const itemn = response.name;
+        const imageUrl = response.sprites?.default || '';
+
+        if (isSearchCard) {
+          this.searchCardTitlet = itemn;
+          this.searchitemnImage = imageUrl;
+        } else {
+          this.searchCardTitlen = itemn;
+          this.searchitemnImage = imageUrl;
+        }
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  } catch (error) {
+    console.error(error);
+  }
+}
+  
+  // Función para obtener datos de un ítem por nombre en la tercera tarjeta
   getItemDataByNamet(name: string, isSearchCard: boolean) {
     try {
-      // Convierte el nombre del Pokémon a minúsculas
       const lowercaseItemt = name.toLowerCase();
   
-      // Llama al método getPokemonitemt del servicio y se suscribe al observable.
-      this.api.getPokemonitemt(lowercaseItemt).subscribe((response => {
-        // Asigna el nombre del Pokémon a la variable local 'itemt'.
-        const itemt = response.itemt;
-        // Imprime el nombre del Pokémon en la consola.
-        console.log(lowercaseItemt);
+      this.api.getPokemonitemt(lowercaseItemt).subscribe(
+        (response) => {
+          const itemt = response.name;
+          const imageUrl = response.sprites?.default || '';
   
-        // Actualiza las variables de la tarjeta correspondiente con el nombre y la imagen del Pokémon.
-        if (isSearchCard) {
-          this.searchCardTitlet = itemt;
-          this.searchitemtImage = response.sprites.front_default;
-        } 
-      }));
+          if (isSearchCard) {
+            this.searchCardTitlet = itemt;
+            this.searchitemtImage = imageUrl;
+          } else {
+            this.cardTitlet = itemt;
+            this.itemImage = imageUrl;
+          }
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
     } catch (error) {
-      // Captura cualquier error que pueda ocurrir durante la suscripción y lo imprime en la consola.
-      console.log(error);
+      console.error(error);
     }
   }
 

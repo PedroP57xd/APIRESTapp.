@@ -2,8 +2,8 @@
 
 /* Estilo para el contenido de la Pokedex */
 ion-content{
-  background: #af1b1b;
-  --background: url('../../assets/9fa509702fab91b910e82919b5408993.jpg') no-repeat center center fixed;
+  background: #810a0a;
+  --background:  url('../../assets/e3035c16d771a0f0822cac63901483a2.jpg') repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -41,7 +41,9 @@ ion-card {
   width: 30%; /* Ancho de la tarjeta */
   height: 300px; /* Altura de la tarjeta */
   border-radius: 10px; /* Borde redondeado */
-  background: #292828; /* Color de fondo */
+  --background: url('../../assets/9fa509702fab91b910e82919b5408993.jpg') repeat center center fixed;
+  background-size: cover;
+    display: flex;
 }
 
 /* Estilo para las imágenes centradas */
@@ -55,7 +57,7 @@ ion-icon {
 /* Estilo para la barra de búsqueda */
 ion-searchbar {
   --color: rgb(255, 255, 255);
-  --background: #3a8be765; /* Color del texto */
+  --background: #65c7fff8; /* Color del texto */
 }
 
 /* Estilo para el contenedor de botones */
