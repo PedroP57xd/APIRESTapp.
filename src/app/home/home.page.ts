@@ -142,13 +142,7 @@ export class HomePage {
 // En la función searcht
 searcht() {
   // Si hay un valor en searchitt, busca el ítem.
-  if (this.searchitt) {
-    this.getItemDataByNamet(this.searchitt, true);
-  } else {
-    // Si no hay valor en searchitt, busca por el número actual.
-    this.getPokemonDataByItemID(this.searchitn, false);
-  }
-}
+
 
 
 getPokemonDataByItemID(name: string, isSearchCard: boolean) {
